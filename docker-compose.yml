@@ -1,0 +1,79 @@
+version: '2'
+
+services:
+
+  #Php Container
+  php:
+    build: docker/php
+    expose:
+      - 9000
+    volumes:
+      - .:/var/www/html
+    networks:
+      - docker-php-ecosystem
+
+  #Nginx Container
+  nginx:
+    build: docker/nginx
+    expose:
+      - 80
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx/:/etc/nginx/conf.d/
+    networks:
+      - docker-php-ecosystem
+
+  #MySQL Container
+  mysql:
+    build: docker/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    networks:
+      - docker-php-ecosystem
+
+  #PhpMyAdmin Container
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql:db
+    ports:
+      - "8082:80"
+    environment:
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+      - PHP_UPLOAD_MAX_FILESIZE=100MB
+    networks:
+      - docker-php-ecosystem
+
+  #MongoDB Container
+  mongodb:
+    build: docker/mongodb
+    ports:
+        - 27017:27017
+    networks:
+      - docker-php-ecosystem
+
+  #MongoDB client Container
+  mongoclient:
+    image: mongoclient/mongoclient:latest
+    links:
+      - mongodb:db
+    ports:
+      - 3300:3000
+    networks:
+      - docker-php-ecosystem
+
+  #Redis Container
+  redis:
+    build: docker/redis
+    ports:
+      - 6379:6379
+    networks:
+      - docker-php-ecosystem
+
+networks:
+  docker-php-ecosystem: ~

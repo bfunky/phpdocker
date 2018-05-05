@@ -1,0 +1,38 @@
+{
+  "name": "bfunky/phpdocker",
+  "type": "library",
+  "description": "A bundle of configured docker containers to use on your PHP environment",
+  "keywords": [
+    "docker",
+    "container",
+    "php",
+    "nginx",
+    "mysql",
+    "mongodb",
+    "redis"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jairo Rodríguez",
+      "email": "jairo@bfunky.net",
+      "homepage": "http://www.bfunky.net"
+    }
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "BFunky\\Phpdocker\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BFunky\\Test\\Phpdocker\\": "test"
+    }
+  },
+  "bin": [
+    "bin/phpdocker"
+  ]
+}
