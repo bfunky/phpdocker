@@ -1,8 +1,8 @@
-#PhpDocker
+# PhpDocker
 
 A bundle of configured docker containers to use on your PHP environment.
 
-##Description
+## Description
 
 List of containers that will be created on a run.
 - php (port 9000)
@@ -14,7 +14,7 @@ List of containers that will be created on a run.
 - redis (port 6379) 
 
 
-#Usage
+# Usage
 At first run to create the containers
 ```
 docker-compose build
