@@ -14,13 +14,13 @@ List of containers that will be created on a run.
 - redis (port 6379) 
 
 
-# Usage
-At first run to create the containers
+## Usage
+At first, run to create the containers
 ```
 docker-compose build
 ```
 
-At second raise up the containers
+At second, raise up the containers
 ```
 docker-compose up -d
 ```
