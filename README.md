@@ -15,12 +15,45 @@ List of containers that will be created on a run.
 
 
 ## Usage
-At first, run to create the containers
+At first, run this command to create the containers.
 ```
 docker-compose build
 ```
 
-At second, raise up the containers
+At second, raise up the containers, if you want to up all of them, following next command
 ```
 docker-compose up -d
 ```
+
+But if you want just to raise up some specific containers, then just run the command specifying the concrete service you want.
+
+Raising up php container
+```
+docker-compose up -d php
+```
+
+Raising up nginx container
+```
+docker-compose up -d nginx
+```
+
+Raising up mysql container
+```
+docker-compose up -d mysql
+```
+Raising up phpmyadmin container (this will up mysql if it's not already raised).
+```
+docker-compose up -d phpmyadmin
+```
+Raising up mongodb container
+```
+docker-compose up -d mongodb
+```
+Raising up mongoclient container
+```
+docker-compose up -d mongoclient
+```
+Raising up redis container
+```
+docker-compose up -d redis
+``
